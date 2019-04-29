@@ -47,7 +47,7 @@ public class GreetingController {
     public String filter(@RequestParam String filter, Map<String, Object> model){
         Iterable<Site> sites;
         if (filter != null && !filter.isEmpty()) {
-            sites = siteRepo.findByAdres(filter);
+            sites = siteRepo.findByAdresIs(filter);
         } else {
             sites = siteRepo.findAll();
         }

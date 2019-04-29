@@ -13,6 +13,6 @@ import java.util.List;
 public interface SiteRepo extends CrudRepository<Site, Long> {
 
     //List<Site> findById(String id);
-    List<Site> findByAdres(String adres);
+    List<Site> findByAdresIs(String adres);
 
 }
