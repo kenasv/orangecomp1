@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class site {
+public class Site {
     @Id
     private String id;
     private String diapazon;
