@@ -1,10 +1,11 @@
 package com.asuscomm.orangecomp1.allbd;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class site {
-    @id
+    @Id
     private String id;
     private String diapazon;
     private String adres;
