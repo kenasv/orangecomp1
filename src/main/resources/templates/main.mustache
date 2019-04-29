@@ -11,6 +11,10 @@
 
 
     <div> Список площадок </div>
+    <form method="post" action="filter">
+        <input type="text" name="filter">
+        <button type="submit">Найти</button>
+    </form>
     {{#sites}}
         <div>
             <b> {{id}} </b>
