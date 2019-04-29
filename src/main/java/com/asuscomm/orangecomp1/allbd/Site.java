@@ -16,6 +16,15 @@ public class Site {
     private String aparatnaa;
     private String ad;
 
+    public  Site(){
+
+    }
+
+    public Site(String id, String adres) {
+        this.id = id;
+        this.adres = adres;
+    }
+
     public String getId() {
         return id;
     }

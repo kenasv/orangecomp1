@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Map;
@@ -25,10 +26,20 @@ public class GreetingController {
 
     @GetMapping
     public String main(Map<String, Object> model) {
-        Iterable<Site> sites=siteRepo.findAll();
+        Iterable<Site> sites = siteRepo.findAll();
         model.put("sites", sites);
         return "main";
     }
 
+    @PostMapping
+    public String add(@RequestParam String id, @RequestParam String adres, Map<String, Object> model){
+       Site site = new Site(id, adres);
+
+       siteRepo.save(site);
+
+        Iterable<Site> sites = siteRepo.findAll();
+        model.put("sites", sites);
+        return "main";
+    }
 
 }
