@@ -1,4 +1,4 @@
-package com.asuscomm.orangecomp1;
+package com.asuscomm.orangecomp1.controller;
 
 
 import com.asuscomm.orangecomp1.allbd.Site;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class GreetingController {
+public class MainController {
 
     @Autowired
     private SiteRepo siteRepo;
