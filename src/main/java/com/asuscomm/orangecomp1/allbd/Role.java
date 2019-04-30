@@ -1,4 +1,5 @@
 package com.asuscomm.orangecomp1.allbd;
 
-public class Role {
+public enum Role {
+    USER;
 }
