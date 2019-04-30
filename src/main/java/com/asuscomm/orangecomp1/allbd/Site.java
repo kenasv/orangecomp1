@@ -1,7 +1,6 @@
 package com.asuscomm.orangecomp1.allbd;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Site {
@@ -16,15 +15,25 @@ public class Site {
     private String aparatnaa;
     private String ad;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User author;
+
+
+
     public  Site(){
 
     }
 
-    public Site(String id, String adres) {
+    public Site(String id, String adres, User user) {
         this.id = id;
         this.adres = adres;
+        this.author = user;
     }
 
+    public String getAuthorName(){
+        return author != null ? author.getUsername() : "<none>";
+    }
     public String getId() {
         return id;
     }
@@ -96,4 +105,15 @@ public class Site {
     public String getAd() {
         return ad;
     }
+
+    public User getAuthor(){
+        return author;
+    }
+
+    public void  setAuthor(User author){
+        this.author = author;
+    }
+
+
+
 }

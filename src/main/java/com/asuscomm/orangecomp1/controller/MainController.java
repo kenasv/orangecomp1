@@ -2,8 +2,10 @@ package com.asuscomm.orangecomp1.controller;
 
 
 import com.asuscomm.orangecomp1.allbd.Site;
+import com.asuscomm.orangecomp1.allbd.User;
 import com.asuscomm.orangecomp1.repos.SiteRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,8 +36,13 @@ public class MainController {
     }
 
     @PostMapping("/main")
-    public String add(@RequestParam String id, @RequestParam String adres, Map<String, Object> model){
-       Site site = new Site(id, adres);
+    public String add(
+            @AuthenticationPrincipal User user,
+            @RequestParam String id,
+            @RequestParam String adres,
+            Map<String, Object> model
+    ){
+       Site site = new Site(id, adres, user);
 
        siteRepo.save(site);
 
