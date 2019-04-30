@@ -20,20 +20,20 @@ public class GreetingController {
     @Autowired
     private SiteRepo siteRepo;
 
-    @GetMapping("/greeting")
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Map<String, Object> model) {
-        model.put("name", name);
+    @GetMapping("/")
+    public String greeting(Map<String, Object> model) {
+
         return "greeting";
     }
 
-    @GetMapping
+    @GetMapping("/main")
     public String main(Map<String, Object> model) {
         Iterable<Site> sites = siteRepo.findAll();
         model.put("sites", sites);
         return "main";
     }
 
-    @PostMapping
+    @PostMapping("/main")
     public String add(@RequestParam String id, @RequestParam String adres, Map<String, Object> model){
        Site site = new Site(id, adres);
 
